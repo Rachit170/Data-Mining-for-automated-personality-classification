@@ -1,0 +1,491 @@
+{% extends 'index.html' %}
+{% block body %}
+
+<style>
+    .container {
+        padding-top: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 15px;
+    }
+
+    .card {
+        margin: 10px;
+        border-radius: 20px;
+    }
+
+    .card-body-green {
+        border-top: 1px solid #000000;
+        background-color: #98c26c;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .card-body-blue {
+        border-top: 1px solid #000000;
+        background-color: #71cacc;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .card-body-purple {
+        border-top: 1px solid #000000;
+        background-color: #a687b9;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .card-text-purple {
+        padding-left: 20px;
+        padding-top: 5px;
+        margin-bottom: 10px;
+        padding-right: 4px;
+    }
+
+    .card-body-yellow {
+        border-top: 1px solid #000000;
+        background-color: #e6c62b;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .card-text-yellow {
+        padding-left: 20px;
+        padding-top: 5px;
+        margin-bottom: 10px;
+        padding-right: 4px;
+    }
+
+    .card-body-lime {
+        border-top: 1px solid #000000;
+        background-color: #e8f078;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .card-text-lime {
+        padding-left: 20px;
+        padding-top: 5px;
+        margin-bottom: 10px;
+        padding-right: 4px;
+    }
+
+    .purple-adjust {
+        margin-top: 10px;
+    }
+
+
+    .alpha {
+        width: 65%;
+        border: 1px solid #ffffff;
+    }
+
+    .override {
+        margin: -50px;
+        border-radius: 20px;
+        margin-bottom: -1px;
+    }
+
+    .card-text-blue {
+        padding-left: 20px;
+        padding-top: 5px;
+        margin-bottom: 10px;
+        padding-right: 4px;
+    }
+
+    .blue-adjust {
+        margin-top: 10px;
+    }
+
+    .card-text-green {
+        padding-left: 20px;
+        padding-top: 5px;
+        margin-bottom: 10px;
+        padding-right: 4px;
+    }
+
+    .green-adjust {
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+
+    .yellow-adjust {
+        margin-top: 10px;
+    }
+
+    .lime-adjust {
+        margin-top: 10px;
+    }
+</style>
+
+<div class="container">
+    <h1 align="center">Your Profile</h1>
+    <br>
+    <h4 align="center">Review your personality test results and learn more about your personality type and core traits.
+    </h4>
+
+    {% if predictions==0 %}
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <p align="center" style="font-size: 12px;" class="card-text">Your Personality</p>
+                <img src="{{url_for('static', filename='cluster0.png')}}" class="card-img-top" alt="cluster_0_logo">
+                <h5 class="card-title" align="center">The Adventurous Spirit</h5>
+                <div class="card-body-green">
+                    <p class="card-text-green">"The Adventurous Spirits" eagerly embrace new experiences with an
+                        outgoing and
+                        expressive nature, seeking exploration and adventure. They foster friendly and compassionate
+                        relationships, approaching challenges with creativity and flexibility.</p>
+                </div>
+            </div>
+        </div>
+        <div class="alpha card">
+            <div class=" card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" href="#">Your Traits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" href="/">Home</a>
+                </ul>
+            </div>
+            <div class="override card-body-green">
+
+                <p class="green-adjust card-text">
+                <ul>
+                    <li>
+                        <strong>Approach to Life:</strong>
+                        <p>You're likely someone who embraces life with enthusiasm and a zest for exploration. Although
+                            occasional nerves or anxiety may arise, your positive outlook empowers you to overcome
+                            obstacles
+                            and approach life with wonder. Your creative and adaptable nature enables you to navigate
+                            through different situations with curiosity and an open mind.</p>
+                    </li>
+                    <li>
+                        <strong>Communication Style:</strong>
+                        <p>You're an outgoing and expressive individual. You thoroughly enjoy sharing your exciting
+                            experiences and captivating others with your enthralling stories and innovative ideas.</p>
+                    </li>
+                    <li>
+                        <strong>Interests and Hobbies:</strong>
+                        <p>You are likely drawn to activities that involve exploration and adventure. You might enjoy
+                            traveling to new places, trying various cuisines, engaging in outdoor sports, and
+                            participating in creative endeavors.</p>
+                    </li>
+                    <li>
+                        <strong>Relationships:</strong>
+                        <p>You highly value friendships and are eager to make connections with people from diverse
+                            backgrounds. Your agreeable and compassionate nature fosters a supportive and caring
+                            atmosphere in your relationships. Your consistent and supportive nature makes you a valued
+                            friend and reliable partner.</p>
+                    </li>
+
+                    <li>
+
+                        <strong>Problem-Solving Approach:</strong>
+                        <p>When faced with challenges, you likely tend to think outside the box and approach
+                            problem-solving with creativity and flexibility. You are resourceful and dedicated to
+                            finding innovative and effective solutions, utilizing your problem-solving skills to
+                            overcome obstacles with determination. </p>
+                    </li>
+                </ul>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if predictions==1 %}
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <p align="center" style="font-size: 12px;" class="card-text">Your Personality</p>
+                <img src="{{url_for('static', filename='cluster1.png')}}" class="card-img-top" alt="cluster_1_logo">
+                <h5 class="card-title" align="center">The Balanced Achievers</h5>
+                <div class="card-body-purple">
+                    <p class="card-text-purple">"The Balanced Achievers" maintain a harmonious balance, driven by
+                        optimism
+                        and
+                        determination to achieve goals. Adaptable communicators with strong connections, they approach
+                        challenges with a creative and determined mindset.</p>
+                </div>
+            </div>
+        </div>
+        <div class="alpha card">
+            <div class=" card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" href="#">Your Traits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" href="/">Home</a>
+                </ul>
+            </div>
+            <div class="override card-body-purple">
+
+                <p class="purple-adjust card-text-purple">
+                <ul>
+
+                    <strong>Approach to Life:</strong>
+                    <p>You approach life with a clear
+                        sense of purpose, setting goals, and persistently working towards achieving them. Your outgoing
+                        and sociable nature allows you to build strong relationships, both personally and
+                        professionally. As a natural leader, you inspire others through your work ethic and cooperative
+                        approach.</p>
+                    </li>
+                    <li>
+                        <strong>Communication Style:</strong>
+                        <p>You're likely an effective communicator who excels at clearly conveying your ideas and
+                            expectations. You're approachable and actively listen to others, fostering open and
+                            productive conversations.</p>
+                    </li>
+                    <li>
+                        <strong>Interests and Hobbies:</strong>
+                        <p>You likely enjoy activities that involve teamwork, organization, and goal achievement. You
+                            likely participate actively in team sports, project management, or community engagement
+                            initiatives.
+                            You find fulfillment in collaborative efforts and contributing to the success of a shared
+                            objective.</p>
+                    </li>
+                    <li>
+                        <strong>Relationships:</strong>
+                        <p>You build strong and enduring relationships based on trust and dependability. Others count on
+                            you for support and advice, knowing they can count on you in times of need. Your supportive
+                            nature makes you a valued friend and reliable partner.</p>
+                    </li>
+                    <li>
+                        <strong>Problem-Solving Approach:</strong>
+                        <p>When facing challenges, you approach problem-solving with a methodical and systematic
+                            mindset. Your conscientious nature allows you to identify the most effective solutions by
+                            carefully analyzing the situation and considering various perspectives. You are resourceful
+                            and dedicated to finding successful resolutions.</p>
+
+                    </li>
+                </ul>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if predictions==2 %}
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <p align="center" style="font-size: 12px;" class="card-text">Your Personality</p>
+                <img src="{{url_for('static', filename='cluster2.jpeg')}}" class="card-img-top" alt="cluster_2_logo">
+                <h5 class="card-title" align="center">The Thoughtful Contemplators</h5>
+                <div class="card-body-yellow">
+                    <p class="card-text-yellow">The Thoughtful Contemplators" are reflective and introspective
+                        individuals who value personal growth and meaningful connections. They approach challenges with
+                        insight, dedicating time to self-improvement
+                        through creative arts and mindfulness practices.</p>
+                </div>
+            </div>
+        </div>
+        <div class="alpha card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" href="#">Your Traits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" href="/">Home</a>
+                </ul>
+            </div>
+            <div class="override card-body-yellow">
+
+                <p class="yellow-adjust card-text-yellow">
+                <ul>
+
+                    <strong>Approach to Life:</strong>
+                    <p>Your approach to life is reflective
+                        and introspective. You take the time to think deeply about various aspects of life and are
+                        excellent at
+                        understanding others' emotions. While organization may not be your strong suit, your
+                        thoughtfulness
+                        helps you approach challenges with insight and understanding. You cherish meaningful connections
+                        with a
+                        close circle of friends and value quality over quantity in your relationships.Your thoughtful
+                        and contemplative nature allows you to navigate life's complexities with empathy and a genuine
+                        desire to understand the world and the people around you.</p>
+                    </li>
+                    <li>
+                        <strong>Communication Style:</strong>
+                        <p>Your communication style revolves around being a great listener and
+                            valuing meaningful conversations. You may prefer one-on-one interactions or small group
+                            discussions.</p>
+                    </li>
+                    <li>
+                        <strong>Interests and Hobbies:</strong>
+                        <p>You likely engage in activities that allow for
+                            self-reflection and personal growth. You might enjoy reading, writing, creative arts, or
+                            mindfulness
+                            practices.</p>
+                    </li>
+                    <li>
+                        <strong>Relationships:</strong>
+                        <p>You form deep and meaningful connections with a close circle of friends. Your
+                            supportive and understanding nature offers a compassionate ear to those in need.</p>
+                    </li>
+                    <li>
+                        <strong>Problem-Solving Approach:</strong>
+                        <p> When faced with challenges, you likely take the time to analyze and
+                            contemplate different perspectives before arriving at a thoughtful and well-considered
+                            solution.</p>
+                    </li>
+                </ul>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if predictions==3 %}
+
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <p align="center" style="font-size: 12px;" class="card-text">Your Personality</p>
+                <img src="{{url_for('static', filename='cluster3.png')}}" class="card-img-top" alt="cluster_0_logo">
+                <h5 class="card-title" align="center">The Harmonious Mediators</h5>
+                <div class="card-body-lime">
+                    <p class="card-text-lime"> "The Harmonious Mediators" skillfully navigate social dynamics,
+                        mediate conflicts, seeking resolutions that satisfy all parties
+                        involved. Excellent communicators who value positive relationships and approach life with a
+                        belief in the power of harmony and cooperation.</p>
+                </div>
+            </div>
+        </div>
+        <div class="alpha card">
+            <div class=" card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" href="#">Your Traits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" href="/">Home</a>
+                </ul>
+            </div>
+            <div class="override card-body-lime">
+
+                <p class=" lime-adjust card-text-lime">
+                <ul>
+
+                    <strong>Approach to Life:</strong>
+                    <p>You are approachable and easy to talk to, often acting
+                        as a mediator in conflicts. Your moderate conscientiousness allows you to fulfill
+                        responsibilities without being overly rigid, striking a balance between work and personal life.
+                        You enjoy connecting with others but also value moments of solitude for self-reflection. Your
+                        approach to life centers around fairness and empathy, as you believe in the power of harmony and
+                        cooperation.With a natural inclination for fostering positive relationships, you find
+                        fulfillment in bringing people together to build a more cohesive and understanding community.
+                    </p>
+                    </li>
+                    <li>
+                        <strong>Communication Style:</strong>
+                        <p> You are an excellent communicator who navigates discussions with diplomacy and tact. You
+                            seek to find common ground and promote understanding.</p>
+                    </li>
+                    <li>
+                        <strong>Interests and Hobbies:</strong>
+                        <p>You likely engage in activities that involve group dynamics and building
+                            bridges between people. You might enjoy team-building exercises, mediation, or community
+                            involvement.</p>
+                    </li>
+                    <li>
+                        <strong>Relationships:</strong>
+                        <p>You value positive relationships with colleagues and friends and play a crucial role in
+                            diffusing conflicts and fostering cooperation.</p>
+                    </li>
+                    <li>
+                        <strong>Problem-Solving Approach:</strong>
+                        <p> When confronted with challenges, you mediate conflicts, seeking resolutions that satisfy all
+                            parties involved. Your problem-solving approach is characterized by fairness and empathy.
+                        </p>
+                    </li>
+                </ul>
+
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+    {% if predictions==4 %}
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <p align="center" style="font-size: 12px;" class="card-text">Your Personality</p>
+                <img src="{{url_for('static', filename='cluster4.svg')}}" class="card-img-top" alt="cluster_0_logo">
+                <h5 class="card-title" align="center">The Balanced Achievers</h5>
+                <div class="card-body-blue">
+                    <p class="card-text-blue">"The Balanced Achievers" maintain a harmonious balance, driven by optimism
+                        and
+                        determination to achieve goals. Adaptable communicators with strong connections, they approach
+                        challenges with a creative and determined mindset.</p>
+                </div>
+            </div>
+        </div>
+        <div class="alpha card">
+            <div class=" card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" href="#">Your Traits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" href="/">Home</a>
+                </ul>
+            </div>
+            <div class="override card-body-blue">
+
+                <p class="blue-adjust  card-text-blue">
+                <ul>
+
+                    <strong>Approach to Life:</strong>
+                    <p>You're likely someone who embraces life with enthusiasm and a zest for exploration. Although
+                        occasional nerves or anxiety may arise, your positive outlook empowers you to overcome obstacles
+                        and approach life with wonder. Your creative and adaptable nature enables you to navigate
+                        through different situations with curiosity and an open mind. You also appreciate the value of
+                        mindfulness and often take moments to reflect on your journey, finding inner strength and growth
+                        through self-awareness.</p>
+                    </li>
+                    <li>
+                        <strong>Communication Style:</strong>
+                        <p>You're an outgoing and expressive individual. You thoroughly enjoy sharing your exciting
+                            experiences and captivating others with your enthralling stories and innovative ideas.</p>
+                    </li>
+                    <li>
+                        <strong>Interests and Hobbies:</strong>
+                        <p>You are likely drawn to activities that involve exploration and adventure. You might enjoy
+                            traveling to new places, trying various cuisines, engaging in outdoor sports, and
+                            participating in creative endeavors.</p>
+                    </li>
+                    <li>
+                        <strong>Relationships:</strong>
+                        <p>You highly value friendships and are eager to make connections with people from diverse
+                            backgrounds. Your agreeable and compassionate nature fosters a supportive and caring
+                            atmosphere in your relationships.</p>
+                    </li>
+                    <li>
+                        <strong>Problem-Solving Approach:</strong>
+                        <p>When faced with challenges, you likely tend to think outside the box and approach
+                            problem-solving with creativity and flexibility. Your ability to remain calm
+                            under pressure allows you to analyze situations objectively and find effective resolutions.
+                        </p>
+
+                    </li>
+                </ul>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock body %}
